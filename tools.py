@@ -55,7 +55,7 @@ class ObjectDetectionTool(BaseTool):
         for score, label, box in zip(results["scores"], results["labels"], results["boxes"]):
             detections+='[{},{},{},{}]'.format(int(box[0]),int(box[1]),int(box[2]),int(box[3]))
             detections+=' {}'.format(model.config.id2label[int(label)])
-            detections+=' confidence score: '
+            detections+=' ,confidence score: '
             detections+=' {}\n'.format(float(score))
         
         return detections
